@@ -1,0 +1,3 @@
+name: TestProject
+main: main.q
+include: true
