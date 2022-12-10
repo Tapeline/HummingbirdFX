@@ -1,3 +1,9 @@
 name: TestProject
 main: main.q
 include: true
+res: res
+src: src
+
+outerlib:
+  qbootstrap: *
+

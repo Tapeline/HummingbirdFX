@@ -1,9 +1,8 @@
 package me.tapeline.hummingbird.resources;
 
-import java.awt.*;
+import javafx.scene.text.Font;
 
 public class Fonts {
-
     public static Font jbMonoBold;
     public static Font jbMonoBoldItalic;
     public static Font jbMonoExtraBold;

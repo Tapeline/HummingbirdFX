@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="118.0" text="Settings" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TabPane fx:id="settingsTabs" layoutX="83.0" layoutY="136.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0" />
+         </children>
+      </AnchorPane>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+          <Button fx:id="cancelButton" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
+        </buttons>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </ButtonBar>
+   </children>
+</VBox>

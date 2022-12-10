@@ -1,4 +1,4 @@
-package me.tapeline.hummingbird.splash.splash;
+package me.tapeline.hummingbird.splash;
 
 import javax.swing.*;
 import java.awt.*;

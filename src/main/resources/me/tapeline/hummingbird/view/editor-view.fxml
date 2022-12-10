@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="mainPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="711.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <MenuBar>
+      <MenuBar id="menuBar" fx:id="menuBar">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="New project" />
+                  <MenuItem mnemonicParsing="false" />
+              <MenuItem mnemonicParsing="false" text="Close project" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -17,6 +38,31 @@
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Navigation">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Code">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Refract">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Git">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Tools">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
@@ -24,69 +70,124 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Pane prefHeight="32.0" prefWidth="600.0" />
-      <ToolBar prefHeight="32.0" prefWidth="600.0">
-        <items>
-          <Button mnemonicParsing="false" text="Button" />
-        </items>
-      </ToolBar>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <GridPane maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="780.0">
+         <VBox.margin>
+            <Insets bottom="5.0" left="10.0" top="5.0" />
+         </VBox.margin>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Pane id="pathBar" fx:id="pathBar" prefHeight="32.0" prefWidth="0.0" GridPane.hgrow="SOMETIMES">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Pane>
+            <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+               <children>
+                  <FlowPane fx:id="runButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="224.0">
+                     <children>
+                        <ComboBox />
+                        <Button mnemonicParsing="false" text="Run" />
+                        <Button mnemonicParsing="false" text="Stop" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane id="gitButtonsBar" fx:id="gitButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="211.0">
+                     <children>
+                        <Label text="Git:" />
+                        <Button mnemonicParsing="false" text="Pull" />
+                        <Button mnemonicParsing="false" text="Commit" />
+                        <Button mnemonicParsing="false" text="Push" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane id="utilityButtonsBar" fx:id="utilityButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="130.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Update" />
+                        <Button mnemonicParsing="false" text="About" />
+                     </children>
+                  </FlowPane>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+      <BorderPane id="workspaceBorderPane" fx:id="workspaceBorderPane" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <center>
-            <SplitPane dividerPositions="0.6749435665914221" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+            <SplitPane id="terminalSplitter" fx:id="terminalSplitter" dividerPositions="0.6749435665914221" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
               <items>
-                  <SplitPane dividerPositions="0.21937321937321938" prefHeight="160.0" prefWidth="200.0">
+                  <SplitPane id="workspaceSplitter" fx:id="workspaceSplitter" dividerPositions="0.21979434447300772, 0.8303341902313625" prefHeight="160.0" prefWidth="200.0">
                     <items>
-                        <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane id="projectTabs" fx:id="projectTabs" prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
                           <tabs>
                             <Tab text="Project">
+                              <content>
+                                    <TreeView id="fileTree" fx:id="fileTree" prefHeight="200.0" prefWidth="200.0" />
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                        <TabPane id="workspaceTabs" fx:id="workspaceTabs" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS" />
+                        <TabPane id="detailsTabs" fx:id="detailsTabs" prefHeight="200.0" prefWidth="200.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Components">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                               </content>
                             </Tab>
                           </tabs>
                         </TabPane>
-                        <SplitPane dividerPositions="0.7650375939849624" prefHeight="160.0" prefWidth="200.0">
-                          <items>
-                              <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS">
-                                <tabs>
-                                  <Tab text="main.q">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                    </content>
-                                  </Tab>
-                                  <Tab text="embed/lib.java">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                    </content>
-                                  </Tab>
-                                </tabs>
-                              </TabPane>
-                              <TabPane prefHeight="200.0" prefWidth="200.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
-                                <tabs>
-                                  <Tab text="Components">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                    </content>
-                                  </Tab>
-                                </tabs>
-                              </TabPane>
-                          </items>
-                        </SplitPane>
                     </items>
                   </SplitPane>
-                  <TabPane prefHeight="200.0" prefWidth="200.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab text="Terminal">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
+                  <AnchorPane fx:id="terminalTabsContainer">
+                     <children>
+                        <TabPane id="terminalTabs" fx:id="terminalTabs" prefHeight="200.0" prefWidth="200.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                          <tabs>
+                            <Tab fx:id="terminalTab" text="Terminal">
+                            </Tab>
+                            <Tab fx:id="problemsTab" text="Problems">
+                                 <content>
+                                    <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                       <center>
+                                          <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                       </center>
+                                    </BorderPane>
+                                 </content></Tab>
+                            <Tab fx:id="todoTab" text="TODO">
+                                 <content>
+                                    <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                       <center>
+                                          <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                       </center>
+                                    </BorderPane>
+                                 </content></Tab>
+                              <Tab fx:id="gitTab" text="Git">
+                                 <content>
+                                    <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                       <center>
+                                          <Label text="Git integration is not implemented yet" textFill="#868686" BorderPane.alignment="CENTER" />
+                                       </center>
+                                    </BorderPane>
+                                 </content></Tab>
+                              <Tab fx:id="runTab" text="Run">
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                        <Button fx:id="hideTermButton" mnemonicParsing="false" styleClass="tinyUtilityButton" text="—" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="2.0" />
+                     </children>
+                  </AnchorPane>
               </items>
             </SplitPane>
          </center>
       </BorderPane>
-      <Pane prefHeight="32.0" prefWidth="200.0" />
+      <Pane id="statusBar" fx:id="statusBar" prefHeight="32.0" prefWidth="200.0" />
    </children>
 </VBox>

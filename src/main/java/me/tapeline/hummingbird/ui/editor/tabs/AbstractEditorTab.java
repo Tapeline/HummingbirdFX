@@ -1,18 +1,10 @@
 package me.tapeline.hummingbird.ui.editor.tabs;
 
-import javafx.scene.Node;
 import javafx.scene.control.Tab;
+import me.tapeline.hummingbird.view.editor.EditorStage;
 
-public class EditorTab extends Tab {
+public abstract class AbstractEditorTab extends Tab {
 
-    public EditorTab() {
-    }
+    public abstract void save(EditorStage stage) throws Exception;
 
-    public EditorTab(String s) {
-        super(s);
-    }
-
-    public EditorTab(String s, Node node) {
-        super(s, node);
-    }
 }

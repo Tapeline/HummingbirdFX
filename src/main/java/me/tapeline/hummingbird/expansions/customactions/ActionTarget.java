@@ -4,6 +4,6 @@ public enum ActionTarget {
 
     GLOBAL_CONTEXT,
     FILE_CONTEXT,
-    ANY_CONTEXT
+    ANY_CONTEXT;
 
 }

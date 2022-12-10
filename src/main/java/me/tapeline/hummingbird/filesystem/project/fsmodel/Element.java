@@ -1,6 +1,5 @@
 package me.tapeline.hummingbird.filesystem.project.fsmodel;
 
-import me.tapeline.hummingbird.ui.FileTreeNode;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -33,13 +32,6 @@ public class Element {
         else
             for (Element child : children)
                 child.save();
-    }
-
-    public FileTreeNode toTree() {
-        FileTreeNode me = new FileTreeNode(file);
-        for (Element child : children)
-            me.add(child.toTree());
-        return me;
     }
 
     public void reload() {

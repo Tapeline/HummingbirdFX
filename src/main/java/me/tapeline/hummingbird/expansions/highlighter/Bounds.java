@@ -1,7 +1,6 @@
 package me.tapeline.hummingbird.expansions.highlighter;
 
 public class Bounds {
-
     public int left;
     public int right;
 
@@ -11,7 +10,6 @@ public class Bounds {
     }
 
     public boolean in(int i) {
-        return i >= left && i <= right;
+        return i >= this.left && i <= this.right;
     }
-
 }

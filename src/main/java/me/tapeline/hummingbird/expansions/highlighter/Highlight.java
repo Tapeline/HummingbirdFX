@@ -3,7 +3,6 @@ package me.tapeline.hummingbird.expansions.highlighter;
 import me.tapeline.hummingbird.expansions.colorschemes.TextStyle;
 
 public class Highlight {
-
     public Bounds bounds;
     public TextStyle style;
 

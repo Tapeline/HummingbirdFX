@@ -1,20 +1,19 @@
-package me.tapeline.hummingbird.expansions.filetype;
+package me.tapeline.hummingbird.core.filetypes;
 
+import java.io.File;
+import java.util.Iterator;
+import javafx.scene.control.ContextMenu;
+import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
 import me.tapeline.hummingbird.filesystem.project.Project;
-import me.tapeline.hummingbird.menus.items.ItemDelete;
 import me.tapeline.hummingbird.resources.Icons;
+import me.tapeline.hummingbird.ui.menus.FileDeleteMenuItem;
 import me.tapeline.hummingbird.utils.Utils;
 
-import javax.swing.*;
-import java.io.File;
-
 public class GeneralFile extends AbstractFileType {
-
     public GeneralFile() {
-        icon = Icons.file;
+        this.icon = Icons.file;
     }
 
-    @Override
     public boolean appliesToFile(File file) {
         if (file.isDirectory()) return false;
         if (extensions.size() == 0) return true;
@@ -25,23 +24,12 @@ public class GeneralFile extends AbstractFileType {
         return false;
     }
 
-    @Override
-    public void setupContextActions(JMenu menu, File contextFile, Project contextProject) {
-        menu.add(new ItemDelete(contextFile));
+    public void setupContextActions(ContextMenu menu, File contextFile, Project contextProject) {
+        menu.getItems().add(new FileDeleteMenuItem(contextFile));
     }
 
-    @Override
-    public void setupContextActions(JPopupMenu menu, File contextFile, Project contextProject) {
-        menu.add(new ItemDelete(contextFile));
-    }
-
-    @Override
     public String id() {
         return "plain";
     }
 
-    @Override
-    public int weight() {
-        return 0;
-    }
 }

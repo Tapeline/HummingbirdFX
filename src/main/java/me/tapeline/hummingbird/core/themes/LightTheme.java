@@ -1,32 +1,28 @@
-package me.tapeline.hummingbird.expansions.themes;
+package me.tapeline.hummingbird.core.themes;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
-import com.formdev.flatlaf.FlatIntelliJLaf;
+import java.awt.Color;
 import me.tapeline.hummingbird.expansions.colorschemes.AbstractColorScheme;
-
-import java.awt.*;
+import me.tapeline.hummingbird.expansions.themes.AbstractColorSet;
+import me.tapeline.hummingbird.expansions.themes.AbstractTheme;
 
 public class LightTheme extends AbstractTheme {
-    @Override
+
     public String name() {
         return "Light";
     }
 
-    @Override
     public AbstractColorScheme scheme() {
         AbstractColorScheme scheme = new AbstractColorScheme();
         scheme.regular.fg(new Color(43, 43, 43));
         return scheme;
     }
 
-    @Override
     public AbstractColorSet colors() {
         return new ColorSet();
     }
 
-    @Override
-    public void onApply() {
-        FlatIntelliJLaf.setup();
+    public String cssPath() {
+        return null;
     }
 
     public static class ColorSet extends AbstractColorSet {
@@ -35,4 +31,5 @@ public class LightTheme extends AbstractTheme {
             backgroundTextHighlight = new Color(199, 199, 199);
         }
     }
+
 }

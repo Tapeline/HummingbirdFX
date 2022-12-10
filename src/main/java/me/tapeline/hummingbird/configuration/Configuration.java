@@ -1,48 +1,42 @@
 package me.tapeline.hummingbird.configuration;
 
-import me.tapeline.hummingbird.expansions.runcfg.RunConfiguration;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import me.tapeline.hummingbird.expansions.runcfg.RunConfiguration;
 
 public class Configuration {
 
-    // GENERAL
     @Config
     public String pluginFolder = "plugins";
+
     @Config
     public String projectFolder = "projects";
 
-
-    // DEBUG OPTIONS
     @Config(section = "debugOptions")
     public boolean allowDebug = false;
 
-
-    // APPEARANCE
     @Config(section = "appearance")
     public String theme = "Darcula";
+
     @Config(section = "appearance")
-    public String fontName = "Helvetica";
+    public String fontName = "Monospaced";
+
     @Config(section = "appearance")
     public int fontSize = 13;
 
-
-    // CODE EDITING
     @Config(section = "codeEditing")
     public int tabSizeInSpaces = 4;
 
-
-    // HIDDEN
-    @Config(showInSettings = false)
-    public List<String> enabledPlugins = new ArrayList<>();
+    @Config(section = "terminal")
+    public double scrollMultiplier = 1.8;
 
     @Config(showInSettings = false)
-    public List<String> lastOpened = new ArrayList<>();
+    public List<String> enabledPlugins = new ArrayList();
 
     @Config(showInSettings = false)
-    public List<RunConfiguration> runConfigurations = new ArrayList<>();
+    public List<String> lastOpened = new ArrayList();
 
+    @Config(showInSettings = false)
+    public List<RunConfiguration> runConfigurations = new ArrayList();
 
 }

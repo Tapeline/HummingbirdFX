@@ -2,11 +2,8 @@ package me.tapeline.hummingbird.filesystem;
 
 import me.tapeline.hummingbird.expansions.Registry;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
-import me.tapeline.hummingbird.expansions.filetype.GeneralFile;
-import me.tapeline.hummingbird.resources.Icons;
 import org.apache.commons.io.FileUtils;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,46 +1,44 @@
 package me.tapeline.hummingbird.ui.filetree;
 
+import java.io.File;
 import javafx.scene.control.ContextMenu;
-import javafx.scene.control.TreeCell;
+import javafx.scene.control.TreeItem;
 import javafx.scene.image.ImageView;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
 import me.tapeline.hummingbird.filesystem.FS;
 import me.tapeline.hummingbird.filesystem.project.Project;
 import me.tapeline.hummingbird.resources.Icons;
 
-import java.io.File;
-
-public class FileTreeCell extends TreeCell<String> {
+public class FileTreeItem extends TreeItem<String> {
 
     public File file;
     public ContextMenu contextMenu;
     public Project project;
 
-    public FileTreeCell(File file, Project project) {
+    public FileTreeItem(File file, Project project) {
+        super(file.getName());
         this.file = file;
         this.project = project;
-        contextMenu = new ContextMenu();
-        reload();
+        this.contextMenu = new ContextMenu();
+        this.reload();
     }
 
     public void reload() {
-        if (!file.exists()) {
-            getChildren().clear();
-            getTreeItem().getChildren().clear();
-            getTreeItem().getParent().getChildren().remove(getTreeItem());
-        } else {
-            String[] paths = file.list();
-            if (paths != null) {
-                for (String path : paths)
-                    getChildren().add(new FileTreeCell(new File(path), project));
+        File[] paths = this.file.listFiles();
+        if (paths != null) {
+            for (File path : paths) {
+                this.getChildren().add(new FileTreeItem(path, this.project));
             }
-            AbstractFileType fileType = FS.getTypeForFile(file);
-            if (fileType != null) {
-                setGraphic(new ImageView(Icons.convertToFxImage(fileType.icon)));
-                fileType.setupContextActions(contextMenu, file, project);
-                setContextMenu(contextMenu);
-            }
-            setText(file.getName());
         }
+
+        this.getChildren().sort(new FileComparator());
+        AbstractFileType fileType = FS.getTypeForFile(this.file);
+        if (fileType != null) {
+            fileType.setupContextActions(this.contextMenu, this.file, this.project);
+            this.setGraphic(new ImageView(Icons.convertToFxImage(fileType.icon)));
+        }
+
+        this.setValue(this.file.getName());
     }
+
 }
