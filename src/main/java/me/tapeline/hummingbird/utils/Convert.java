@@ -21,4 +21,12 @@ public class Convert {
         return Icons.convertToFxImage(img);
     }
 
+    public static String hexColor(java.awt.Color color) {
+        return String.format("#%02X%02X%02X%02X",
+                color.getRed(),
+                color.getGreen(),
+                color.getBlue(),
+                color.getAlpha());
+    }
+
 }

@@ -8,7 +8,6 @@ import me.tapeline.hummingbird.expansions.highlighter.Bounds;
 import me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker;
 import me.tapeline.hummingbird.expansions.syntaxchecker.SyntaxTip;
 
-import javax.swing.text.Segment;
 import java.util.*;
 
 public class QuailSyntaxChecker extends AbstractSyntaxChecker {
@@ -28,8 +27,8 @@ public class QuailSyntaxChecker extends AbstractSyntaxChecker {
     }
 
     @Override
-    public List<SyntaxTip> check(Segment segment) {
-        source = segment.toString();
+    public List<SyntaxTip> check(String text) {
+        source = text.toString();
         colors = Registry.currentTheme.scheme();
 
         tokens = new ArrayList<>();
@@ -53,7 +52,7 @@ public class QuailSyntaxChecker extends AbstractSyntaxChecker {
                 "strike", "return", "breakpoint", "break", "continue", "memory"
         );
         for (String k : kw)
-            keywords.put(k, colors.keyword2);
+            keywords.put(k, colors.keyword);
 
         while (!isAtEnd()) {
             start = current;

@@ -32,4 +32,9 @@ public class GeneralFile extends AbstractFileType {
         return "plain";
     }
 
+    @Override
+    public int weight() {
+        return 0;
+    }
+
 }

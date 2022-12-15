@@ -14,6 +14,10 @@ public class DarculaTheme extends AbstractTheme {
     public AbstractColorScheme scheme() {
         AbstractColorScheme scheme = new AbstractColorScheme();
         scheme.regular.fg(new Color(165, 182, 189));
+        scheme.error.fg(new Color(165, 182, 189));
+        scheme.warning.fg(new Color(165, 182, 189));
+        scheme.codeStyleWarning.fg(new Color(165, 182, 189));
+        scheme.deprecated.fg(new Color(165, 182, 189));
         return scheme;
     }
 
@@ -22,12 +26,12 @@ public class DarculaTheme extends AbstractTheme {
     }
 
     public String cssPath() {
-        return "$style/darcula.css";
+        return "$pkg$style/darcula.css";
     }
 
     public static class ColorSet extends AbstractColorSet {
         public ColorSet() {
-            backgroundText = new Color(34, 34, 34);
+            backgroundText = new Color(43, 43, 43);
             backgroundTextHighlight = new Color(50, 50, 50);
         }
     }

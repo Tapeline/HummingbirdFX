@@ -35,12 +35,16 @@ public class QuailPlugin extends Plugin {
 
     @Override
     public List<AbstractSyntaxHighlighter> providedSyntaxes() {
-        return null;
+        return Arrays.asList(
+                new QuailSyntaxHighlighter()
+        );
     }
 
     @Override
     public List<AbstractSyntaxChecker> providedSyntaxCheckers() {
-        return null;
+        return Arrays.asList(
+                new QuailSyntaxChecker()
+        );
     }
 
     @Override

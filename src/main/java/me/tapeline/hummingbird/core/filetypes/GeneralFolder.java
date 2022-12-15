@@ -38,4 +38,9 @@ public class GeneralFolder extends AbstractFileType {
         return "folder";
     }
 
+    @Override
+    public int weight() {
+        return 0;
+    }
+
 }

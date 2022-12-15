@@ -1,6 +1,9 @@
 package me.tapeline.hummingbird.expansions.themes;
 
+import me.tapeline.hummingbird.App;
 import me.tapeline.hummingbird.expansions.colorschemes.AbstractColorScheme;
+import me.tapeline.hummingbird.resources.Stylesheet;
+import me.tapeline.hummingbird.resources.StylesheetManager;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractTheme {
@@ -14,6 +17,15 @@ public abstract class AbstractTheme {
     @Nullable
     public abstract String cssPath();
 
-    public void onApply() {}
+    @Nullable
+    public String rawCss() { return null; }
+
+    public void onApply() {
+        if (cssPath() != null)
+            StylesheetManager.stylesheets.add(new Stylesheet(Stylesheet.Type.FILE, cssPath()));
+        if (rawCss() != null)
+            StylesheetManager.stylesheets.add(new Stylesheet(Stylesheet.Type.RAW, rawCss()));
+        StylesheetManager.buildStylesheet(App.stylesheet);
+    }
 
 }

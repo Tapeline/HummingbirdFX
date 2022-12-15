@@ -21,6 +21,7 @@ import me.tapeline.hummingbird.expansions.Registry;
 import me.tapeline.hummingbird.filesystem.project.Project;
 import me.tapeline.hummingbird.resources.FontLoader;
 import me.tapeline.hummingbird.resources.IconLoader;
+import me.tapeline.hummingbird.resources.StylesheetManager;
 import me.tapeline.hummingbird.splash.SplashScreen;
 import me.tapeline.hummingbird.utils.AppExitWatcher;
 import me.tapeline.hummingbird.view.common.Dialogs;
@@ -33,6 +34,7 @@ public class App extends Application {
     public static Configuration cfg;
     public static String configPath = "config.yml";
     public List<Window> openedWindows = new ArrayList();
+    public static String stylesheet = System.getProperty("user.dir") + "/root.css";
 
     public void start(Stage stage) throws Exception {
         String iconsFolder = "images";
@@ -53,9 +55,10 @@ public class App extends Application {
                 Registry.registerPlugin(new CorePlugin());
                 Registry.registerPlugin(new QuailPlugin());
                 Registry.applyTheme(Registry.getCurrentTheme());
+                Registry.fileTypes.sort((o1, o2) -> Integer.compare(o2.weight(), o1.weight()));
 
                 try {
-                    Thread.sleep(600L);
+                    Thread.sleep(650L);
                 } catch (InterruptedException ignored) {}
 
                 splashScreen.setVisible(false);
@@ -63,7 +66,7 @@ public class App extends Application {
 
                 Dialogs.warn("Warning", "Developer preview", "Do not use in production");
 
-                SettingsStage settings = new SettingsStage(this);
+                ///SettingsStage settings = new SettingsStage(this);
                 EditorStage editor = new EditorStage(this, new Project(new File("testProj")));
                 this.openedWindows.add(editor);
                 System.out.println("Startup finished");
@@ -77,15 +80,7 @@ public class App extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("view/" + id + ".fxml"));
             fxmlLoader.setController(controller);
             Scene scene = new Scene(fxmlLoader.load());
-            if (Registry.getCurrentTheme() != null) {
-                String stylesheetPath = Registry.getCurrentTheme().cssPath();
-                if (stylesheetPath != null && stylesheetPath.startsWith("$")) {
-                    scene.getStylesheets().add(App.class.getResource(stylesheetPath.substring(1))
-                            .toExternalForm());
-                } else if (stylesheetPath != null) {
-                    scene.getStylesheets().add(stylesheetPath);
-                }
-            }
+            applyCurrentThemeToScene(scene);
 
             return scene;
         } catch (IOException exception) {
@@ -94,7 +89,10 @@ public class App extends Application {
     }
 
     public static void applyCurrentThemeToScene(Scene scene) {
-        if (Registry.getCurrentTheme() != null) {
+        StylesheetManager.buildStylesheet(stylesheet);
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(stylesheet);
+        /*if (Registry.getCurrentTheme() != null) {
             String stylesheetPath = Registry.getCurrentTheme().cssPath();
             if (stylesheetPath != null && stylesheetPath.startsWith("$")) {
                 scene.getStylesheets().add(App.class.getResource(stylesheetPath.substring(1))
@@ -102,11 +100,11 @@ public class App extends Application {
             } else if (stylesheetPath != null) {
                 scene.getStylesheets().add(stylesheetPath);
             }
-        }
+        }*/
     }
 
     public static void applyCurrentThemeToDialog(DialogPane scene) {
-        if (Registry.getCurrentTheme() != null) {
+        /*if (Registry.getCurrentTheme() != null) {
             String stylesheetPath = Registry.getCurrentTheme().cssPath();
             if (stylesheetPath != null && stylesheetPath.startsWith("$")) {
                 scene.getStylesheets().add(App.class.getResource(stylesheetPath.substring(1))
@@ -114,7 +112,10 @@ public class App extends Application {
             } else if (stylesheetPath != null) {
                 scene.getStylesheets().add(stylesheetPath);
             }
-        }
+        }*/
+        StylesheetManager.buildStylesheet(stylesheet);
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(stylesheet);
     }
 
     public static void main(String[] args) {

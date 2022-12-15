@@ -11,7 +11,6 @@ import me.tapeline.hummingbird.expansions.customactions.AbstractPluginShortcut;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
 import me.tapeline.hummingbird.expansions.highlighter.AbstractSyntaxHighlighter;
 import me.tapeline.hummingbird.expansions.projecttype.AbstractProjectType;
-import me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker;
 import me.tapeline.hummingbird.expansions.themes.AbstractTheme;
 
 import java.util.Arrays;
@@ -47,7 +46,7 @@ public class CorePlugin extends Plugin {
     }
 
     @Override
-    public List<AbstractSyntaxChecker> providedSyntaxCheckers() {
+    public List<me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker> providedSyntaxCheckers() {
         return null;
     }
 

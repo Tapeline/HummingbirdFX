@@ -8,14 +8,13 @@ import me.tapeline.hummingbird.expansions.customactions.AbstractPluginShortcut;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
 import me.tapeline.hummingbird.expansions.highlighter.AbstractSyntaxHighlighter;
 import me.tapeline.hummingbird.expansions.projecttype.AbstractProjectType;
-import me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker;
 import me.tapeline.hummingbird.expansions.themes.AbstractTheme;
 
 public class Registry {
     public static AbstractTheme currentTheme;
     public static List<AbstractTheme> themes = new ArrayList();
     public static List<AbstractFileType> fileTypes = new ArrayList();
-    public static List<AbstractSyntaxChecker> syntaxCheckers = new ArrayList();
+    public static List<me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker> syntaxCheckers = new ArrayList();
     public static List<AbstractSyntaxHighlighter> syntaxHighlighters = new ArrayList();
     public static List<AbstractProjectType> projectTypes = new ArrayList();
     public static List<AbstractPluginAction> pluginActions = new ArrayList();

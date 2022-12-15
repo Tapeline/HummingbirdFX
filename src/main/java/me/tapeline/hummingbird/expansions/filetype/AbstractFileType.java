@@ -41,4 +41,7 @@ public abstract class AbstractFileType {
 
     public abstract String id();
 
+    public abstract int weight();
+
+
 }

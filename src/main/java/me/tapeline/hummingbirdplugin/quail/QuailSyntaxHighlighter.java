@@ -8,7 +8,6 @@ import me.tapeline.hummingbird.expansions.highlighter.AbstractSyntaxHighlighter;
 import me.tapeline.hummingbird.expansions.highlighter.Bounds;
 import me.tapeline.hummingbird.expansions.highlighter.Highlight;
 
-import javax.swing.text.Segment;
 import java.util.*;
 
 public class QuailSyntaxHighlighter extends AbstractSyntaxHighlighter {
@@ -64,7 +63,7 @@ public class QuailSyntaxHighlighter extends AbstractSyntaxHighlighter {
     }
 
     @Override
-    public List<Highlight> highlight(Segment segment) {
+    public List<Highlight> highlight(String segment) {
         source = segment.toString();
         colors = Registry.currentTheme.scheme();
 
@@ -89,7 +88,7 @@ public class QuailSyntaxHighlighter extends AbstractSyntaxHighlighter {
                 "strike", "return", "breakpoint", "break", "continue", "memory"
         );
         for (String k : kw)
-            keywords.put(k, colors.keyword2);
+            keywords.put(k, colors.keyword);
 
         while (!isAtEnd()) {
             start = current;

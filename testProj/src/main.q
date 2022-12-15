@@ -1,20 +1,14 @@
-use "qbootstrap" here
+use "Object/Base" as BaseObject
+use "QML" as qml
 
-class App extends QLApp {
-
-    list openedWindows
-
-    method main() {
-        # load windows, etc.
-
-	async () -> {
-	    while !areAllClosed() {}
-            # when all closed
-        }
+class Image like BaseObject {
+    string path
+    object<qml.image.Image> image
+    
+    constructor(me, path) {
+    	me.path = path
+    	me.image = qml.image.loadImage(path)
     }
-
-    method areAllClosed(this) {
-	#TODO: do this method
-    } 
-
 }
+
+my_image = Image("./img.png")
