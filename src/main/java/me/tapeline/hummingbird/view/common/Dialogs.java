@@ -1,9 +1,6 @@
 package me.tapeline.hummingbird.view.common;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import me.tapeline.hummingbird.App;
@@ -48,6 +45,16 @@ public class Dialogs {
         alert.setTitle(title);
         alert.setContentText(content);
         return alert.showAndWait();
+    }
+
+    public static String askString(String title, String header, String content, String defaultValue) {
+        TextInputDialog alert = new TextInputDialog(defaultValue);
+        App.applyCurrentThemeToDialog(alert.getDialogPane());
+        alert.setHeaderText(header);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        Optional<String> result = alert.showAndWait();
+        return result.orElse(null);
     }
 
     public static void exception(Exception ex) {

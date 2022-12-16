@@ -25,7 +25,7 @@ public abstract class AbstractTheme {
             StylesheetManager.stylesheets.add(new Stylesheet(Stylesheet.Type.FILE, cssPath()));
         if (rawCss() != null)
             StylesheetManager.stylesheets.add(new Stylesheet(Stylesheet.Type.RAW, rawCss()));
-        StylesheetManager.buildStylesheet(App.stylesheet);
+        StylesheetManager.buildStylesheet(App.stylesheetFile);
     }
 
 }

@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class EditorStage extends HMStage {
 
-    private Project project;
+    public Project project;
     public EditorController controller = null;
 
     public EditorStage(App app, Project project) {

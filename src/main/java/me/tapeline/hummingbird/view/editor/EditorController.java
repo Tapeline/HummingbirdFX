@@ -143,6 +143,10 @@ public class EditorController {
                 terminalSplitter.setDividerPosition(0, lastTerminalTabsHeight);
             }
         });
+
+        fileTree.setOnMouseClicked(event -> {
+            //rebuildFileTree(editor.project, editor.project.root);
+        });
     }
 
     public void rebuildFileTree(Project project, File file) {

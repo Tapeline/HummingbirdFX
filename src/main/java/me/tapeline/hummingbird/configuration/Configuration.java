@@ -19,10 +19,10 @@ public class Configuration {
     public String theme = "Darcula";
 
     @Config(section = "appearance")
-    public String fontName = "JetBrains Mono";
+    public String fontName = "Monospaced";
 
     @Config(section = "appearance")
-    public int fontSize = 13;
+    public int fontSize = 16;
 
     @Config(section = "codeEditing")
     public int tabSizeInSpaces = 4;

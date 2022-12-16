@@ -1,5 +1,8 @@
 package me.tapeline.hummingbird.ui.highlightedarea;
 
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import me.tapeline.hummingbird.App;
@@ -10,10 +13,13 @@ import me.tapeline.hummingbird.expansions.highlighter.Highlight;
 import me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker;
 import me.tapeline.hummingbird.expansions.syntaxchecker.SyntaxTip;
 import me.tapeline.hummingbird.utils.Convert;
+import org.apache.commons.lang3.StringUtils;
 import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.InlineCssTextArea;
 import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.richtext.model.PlainTextChange;
+import org.fxmisc.wellbehaved.event.EventHandlerHelper;
+import org.fxmisc.wellbehaved.event.EventPattern;
 import org.reactfx.Subscription;
 
 import java.time.Duration;
@@ -36,6 +42,14 @@ public class HighlightedArea extends InlineCssTextArea {
         setStyle("-fx-font-size: " + App.cfg.fontSize + "; -fx-font-family: " + App.cfg.fontName + "; " +
                 "-fx-background-color: " + Convert.hexColor(Registry.getCurrentTheme().colors().backgroundText) +
                 ";");
+
+        EventHandler<? super KeyEvent> tabHandler = EventHandlerHelper
+                .on(EventPattern.keyPressed(KeyCode.TAB)).act(event -> {
+                    replaceText(getCaretPosition() - 1, getCaretPosition(), StringUtils.repeat(" ",
+                            App.cfg.tabSizeInSpaces));
+                })
+                .create();
+        EventHandlerHelper.install(onKeyPressedProperty(), tabHandler);
     }
 
     public void cleanup() {

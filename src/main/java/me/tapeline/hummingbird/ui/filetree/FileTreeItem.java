@@ -41,4 +41,13 @@ public class FileTreeItem extends TreeItem<String> {
         this.setValue(this.file.getName());
     }
 
+    public boolean containsFile(String name) {
+        for (TreeItem<?> item : getChildren()) {
+            if (item instanceof FileTreeItem)
+                if (item.getValue().equals(name))
+                    return true;
+        }
+        return false;
+    }
+
 }

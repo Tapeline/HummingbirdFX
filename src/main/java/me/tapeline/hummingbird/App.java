@@ -3,6 +3,8 @@ package me.tapeline.hummingbird;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -34,7 +36,16 @@ public class App extends Application {
     public static Configuration cfg;
     public static String configPath = "config.yml";
     public List<Window> openedWindows = new ArrayList();
-    public static String stylesheet = System.getProperty("user.dir") + "/root.css";
+    public static String stylesheet;
+    public static String stylesheetFile = System.getProperty("user.dir") + "/root.css";
+
+    static {
+        try {
+            stylesheet = new File(System.getProperty("user.dir") + "/root.css").toURL().toExternalForm();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void start(Stage stage) throws Exception {
         String iconsFolder = "images";
@@ -64,6 +75,8 @@ public class App extends Application {
                 splashScreen.setVisible(false);
                 splashScreen.dispose();
 
+                StylesheetManager.buildStylesheet(stylesheetFile);
+
                 Dialogs.warn("Warning", "Developer preview", "Do not use in production");
 
                 ///SettingsStage settings = new SettingsStage(this);
@@ -89,7 +102,7 @@ public class App extends Application {
     }
 
     public static void applyCurrentThemeToScene(Scene scene) {
-        StylesheetManager.buildStylesheet(stylesheet);
+        StylesheetManager.buildStylesheet(stylesheetFile);
         scene.getStylesheets().clear();
         scene.getStylesheets().add(stylesheet);
         /*if (Registry.getCurrentTheme() != null) {
@@ -113,7 +126,7 @@ public class App extends Application {
                 scene.getStylesheets().add(stylesheetPath);
             }
         }*/
-        StylesheetManager.buildStylesheet(stylesheet);
+        StylesheetManager.buildStylesheet(stylesheetFile);
         scene.getStylesheets().clear();
         scene.getStylesheets().add(stylesheet);
     }
