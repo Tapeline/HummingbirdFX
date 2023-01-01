@@ -24,16 +24,6 @@ public class QuailFileType extends AbstractFileType {
     }
 
     @Override
-    public boolean doCustomOpen(File file) {
-        return true;
-    }
-
-    @Override
-    public void customOpen(EditorStage frame, File file) {
-        frame.getController().openTab(new CodeEditorTab(file, FS.readFile(file)), file.getName());
-    }
-
-    @Override
     public String id() {
         return "q";
     }

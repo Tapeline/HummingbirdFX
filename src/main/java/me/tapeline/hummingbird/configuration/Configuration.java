@@ -19,7 +19,7 @@ public class Configuration {
     public String theme = "Darcula";
 
     @Config(section = "appearance")
-    public String fontName = "Monospaced";
+    public String fontName = "Hack";
 
     @Config(section = "appearance")
     public int fontSize = 16;

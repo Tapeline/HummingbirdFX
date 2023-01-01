@@ -6,8 +6,11 @@ import me.tapeline.hummingbird.expansions.colorschemes.TextStyle;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
 import me.tapeline.hummingbird.expansions.highlighter.Bounds;
 import me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker;
+import me.tapeline.hummingbird.expansions.syntaxchecker.AutoFixAction;
 import me.tapeline.hummingbird.expansions.syntaxchecker.SyntaxTip;
+import me.tapeline.hummingbird.filesystem.FS;
 
+import java.io.File;
 import java.util.*;
 
 public class QuailSyntaxChecker extends AbstractSyntaxChecker {
@@ -62,6 +65,11 @@ public class QuailSyntaxChecker extends AbstractSyntaxChecker {
         return tokens;
     }
 
+    @Override
+    public String name() {
+        return "Quail Lint (QEP A)";
+    }
+
     private boolean isAtEnd() {
         return current >= source.length();
     }
@@ -82,6 +90,12 @@ public class QuailSyntaxChecker extends AbstractSyntaxChecker {
 
     private void addToken(String s, SyntaxTip.TipType type) {
         tokens.add(new SyntaxTip(new Bounds(start, current), s, type));
+    }
+
+    private void addToken(String s, SyntaxTip.TipType type, AutoFixAction... actions) {
+        SyntaxTip tip = new SyntaxTip(new Bounds(start, current), s, type);
+        tip.getFixes().addAll(Arrays.asList(actions));
+        tokens.add(tip);
     }
 
     private boolean isDigit(char c) {
@@ -169,7 +183,8 @@ public class QuailSyntaxChecker extends AbstractSyntaxChecker {
             while (isAlphaNumeric(peek())) advance();
             String text = source.substring(start, current);
             if (!isGoodId(text))
-                addToken("Writing _ in IDs is a bad idea:\nQEP A1", SyntaxTip.TipType.CODE_STYLE);
+                addToken("Writing _ in IDs is a bad idea [QEP A1]", SyntaxTip.TipType.CODE_STYLE,
+                        new IdUnderscoreRemover(start, current));
             return;
         }
 
@@ -179,10 +194,39 @@ public class QuailSyntaxChecker extends AbstractSyntaxChecker {
         TextStyle type = keywords.get(text);
         if (type == null) type = colors.regular;
         if (!isGoodId(text))
-            addToken("Writing _ in IDs is a bad idea:\nQEP A1", SyntaxTip.TipType.CODE_STYLE);
+            addToken("Writing _ in IDs is a bad idea [QEP A1]", SyntaxTip.TipType.CODE_STYLE,
+                    new IdUnderscoreRemover(start, current));
     }
 
     private boolean isGoodId(String s) {
         return !s.contains("_");
+    }
+
+    static class IdUnderscoreRemover extends AutoFixAction {
+
+        public int start;
+        public int end;
+
+        public IdUnderscoreRemover(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+
+        @Override
+        public String getLabel() {
+            return "Remove underscores";
+        }
+
+        @Override
+        public void fix(File file) {
+            String content = FS.readFile(file);
+            if (content != null) {
+                String pre = content.substring(start);
+                String post = content.substring(end);
+                String subject = content.substring(start, end);
+                subject = subject.replaceAll("_", "");
+                FS.writeFile(file, pre + subject + post);
+            }
+        }
     }
 }

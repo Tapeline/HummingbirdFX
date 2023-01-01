@@ -7,6 +7,7 @@ import me.tapeline.hummingbird.App;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.List;
 import java.util.Optional;
 
 public class Dialogs {
@@ -56,6 +57,17 @@ public class Dialogs {
         Optional<String> result = alert.showAndWait();
         return result.orElse(null);
     }
+
+    public static <T> T askChoice(String title, String header, String content, List<T> choices) {
+        ChoiceDialog<T> alert = new ChoiceDialog<>(null, choices);
+        App.applyCurrentThemeToDialog(alert.getDialogPane());
+        alert.setHeaderText(header);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        Optional<T> result = alert.showAndWait();
+        return result.orElse(null);
+    }
+
 
     public static void exception(Exception ex) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

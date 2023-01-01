@@ -3,6 +3,7 @@ package me.tapeline.hummingbird.expansions;
 import java.util.ArrayList;
 import java.util.List;
 import me.tapeline.hummingbird.App;
+import me.tapeline.hummingbird.expansions.autocompletion.AbstractCodeAutocompleter;
 import me.tapeline.hummingbird.expansions.customactions.AbstractPluginAction;
 import me.tapeline.hummingbird.expansions.customactions.AbstractPluginShortcut;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
@@ -19,6 +20,7 @@ public class Registry {
     public static List<AbstractProjectType> projectTypes = new ArrayList();
     public static List<AbstractPluginAction> pluginActions = new ArrayList();
     public static List<AbstractPluginShortcut> pluginShortcuts = new ArrayList();
+    public static List<AbstractCodeAutocompleter> codeAutocompleters = new ArrayList<>();
     public static List<Plugin> plugins = new ArrayList();
 
     public static void registerPlugin(Plugin pl) {
@@ -51,6 +53,9 @@ public class Registry {
             pluginShortcuts.addAll(pl.providedShortcuts());
         }
 
+        if (pl.providedAutocompleters() != null) {
+            codeAutocompleters.addAll(pl.providedAutocompleters());
+        }
     }
 
 

@@ -26,15 +26,7 @@ public class EditorStage extends HMStage {
         Scene scene = app.loadScene(this, "editor-view", controller);
         controller.initCustomItems(this);
         setOnCloseRequest((e) -> {
-            for (Tab tab : controller.workspaceTabs.getTabs()) {
-                if (tab instanceof AbstractEditorTab) {
-                    try {
-                        ((AbstractEditorTab) tab).save(this);
-                    } catch (Exception ex) {
-                        Dialogs.exception(ex);
-                    }
-                }
-            }
+            save();
         });
 
         controller.rebuildFileTree(project, project.root);
@@ -42,6 +34,18 @@ public class EditorStage extends HMStage {
         setTitle("Editor - " + project.root.getName());
         setScene(scene);
         show();
+    }
+
+    public void save() {
+        for (Tab tab : controller.workspaceTabs.getTabs()) {
+            if (tab instanceof AbstractEditorTab) {
+                try {
+                    ((AbstractEditorTab) tab).save(this);
+                } catch (Exception ex) {
+                    Dialogs.exception(ex);
+                }
+            }
+        }
     }
 
     public EditorController getController() {

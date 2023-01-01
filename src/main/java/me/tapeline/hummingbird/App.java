@@ -59,7 +59,8 @@ public class App extends Application {
         if (iconException != null) {
             throw iconException;
         } else {
-            Exception fontException = FontLoader.loadFonts(fontsFolder);
+            System.out.println("Startup");
+            Exception fontException = null;//FontLoader.loadFonts(fontsFolder);
             if (fontException != null) {
                 throw fontException;
             } else {

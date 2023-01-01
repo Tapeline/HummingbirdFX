@@ -10,4 +10,10 @@ public abstract class AbstractSyntaxChecker {
 
     public abstract List<SyntaxTip> check(String text);
 
+    public abstract String name();
+
+    public String toString() {
+        return name();
+    }
+
 }

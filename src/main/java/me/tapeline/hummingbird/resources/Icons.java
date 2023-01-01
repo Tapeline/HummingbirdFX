@@ -9,6 +9,7 @@ import javafx.scene.image.WritableImage;
 public class Icons {
 
     public static BufferedImage splash;
+    public static BufferedImage cog;
     public static BufferedImage file;
     public static BufferedImage iconCross;
     public static BufferedImage folder;

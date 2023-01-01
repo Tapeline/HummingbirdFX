@@ -3,8 +3,9 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox id="mainPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="711.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="mainPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar id="menuBar" fx:id="menuBar">
         <menus>
@@ -79,9 +80,9 @@
                <children>
                   <FlowPane fx:id="runButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="224.0">
                      <children>
-                        <ComboBox />
-                        <Button mnemonicParsing="false" text="Run" />
-                        <Button mnemonicParsing="false" text="Stop" />
+                        <ComboBox minHeight="32.0" />
+                        <Button maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
+                        <Button maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
                      </children>
                   </FlowPane>
                   <FlowPane id="gitButtonsBar" fx:id="gitButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="211.0">
@@ -104,7 +105,7 @@
       </GridPane>
       <BorderPane id="workspaceBorderPane" fx:id="workspaceBorderPane" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <center>
-            <SplitPane id="terminalSplitter" fx:id="terminalSplitter" dividerPositions="0.6749435665914221" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+            <SplitPane id="terminalSplitter" fx:id="terminalSplitter" dividerPositions="0.610410094637224" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
               <items>
                   <SplitPane id="workspaceSplitter" fx:id="workspaceSplitter" dividerPositions="0.21979434447300772, 0.8303341902313625" prefHeight="160.0" prefWidth="200.0">
                     <items>
@@ -167,13 +168,29 @@
                                                          <children>
                                                             <ToolBar layoutX="14.0" layoutY="14.0" maxHeight="32.0" minWidth="32.0" prefHeight="32.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                               <items>
-                                                                <Button mnemonicParsing="false" text="Inspect" />
+                                                                <Button fx:id="inspectButton" mnemonicParsing="false" text="Inspect" />
                                                                   <Separator maxHeight="24.0" minHeight="24.0" orientation="VERTICAL" prefHeight="24.0" />
                                                                   <Label text="Choose Inspector" />
-                                                                  <ComboBox prefWidth="150.0" />
+                                                                  <ComboBox fx:id="inspectorChooser" prefWidth="300.0" />
                                                               </items>
                                                             </ToolBar>
-                                                            <ListView fx:id="projectInspectorList" layoutX="23.0" layoutY="-13.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0" />
+                                                            <SplitPane dividerPositions="0.5" layoutY="32.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+                                                               <items>
+                                                                  <ListView fx:id="projectInspectorList" prefHeight="200.0" prefWidth="200.0" />
+                                                                  <AnchorPane prefHeight="142.0" prefWidth="540.0">
+                                                                     <children>
+                                                                        <Label fx:id="inspectorProblemHeader" layoutX="14.0" layoutY="14.0" text="Problem" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                                           <font>
+                                                                              <Font size="16.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="inspectorProblem" layoutX="14.0" layoutY="27.0" text="No selected problem" AnchorPane.topAnchor="40.0" />
+                                                                        <Button fx:id="inspectorGoToButton" layoutX="14.0" layoutY="93.0" mnemonicParsing="false" text="Go To" />
+                                                                        <Button fx:id="inspectorFixButton" layoutX="78.0" layoutY="93.0" mnemonicParsing="false" text="Fix" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </items>
+                                                            </SplitPane>
                                                          </children>
                                                       </AnchorPane>
                                                 </content>
