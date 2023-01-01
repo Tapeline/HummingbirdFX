@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="mainPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="711.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.tapeline.hummingbird.view.editor.EditorController">
+   <children>
+      <MenuBar id="menuBar" fx:id="menuBar">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="New project" />
+                  <MenuItem mnemonicParsing="false" />
+              <MenuItem mnemonicParsing="false" text="Close project" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Navigation">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Code">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Refract">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Git">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Tools">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <GridPane maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="780.0">
+         <VBox.margin>
+            <Insets bottom="5.0" left="10.0" top="5.0" />
+         </VBox.margin>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Pane id="pathBar" fx:id="pathBar" prefHeight="32.0" prefWidth="0.0" GridPane.hgrow="SOMETIMES">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Pane>
+            <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+               <children>
+                  <FlowPane fx:id="runButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="224.0">
+                     <children>
+                        <ComboBox />
+                        <Button mnemonicParsing="false" text="Run" />
+                        <Button mnemonicParsing="false" text="Stop" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane id="gitButtonsBar" fx:id="gitButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="211.0">
+                     <children>
+                        <Label text="Git:" />
+                        <Button mnemonicParsing="false" text="Pull" />
+                        <Button mnemonicParsing="false" text="Commit" />
+                        <Button mnemonicParsing="false" text="Push" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane id="utilityButtonsBar" fx:id="utilityButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="130.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Update" />
+                        <Button mnemonicParsing="false" text="About" />
+                     </children>
+                  </FlowPane>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+      <BorderPane id="workspaceBorderPane" fx:id="workspaceBorderPane" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <center>
+            <SplitPane id="terminalSplitter" fx:id="terminalSplitter" dividerPositions="0.6749435665914221" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+              <items>
+                  <SplitPane id="workspaceSplitter" fx:id="workspaceSplitter" dividerPositions="0.21979434447300772, 0.8303341902313625" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                        <TabPane id="projectTabs" fx:id="projectTabs" prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Project">
+                              <content>
+                                    <TreeView id="fileTree" fx:id="fileTree" prefHeight="200.0" prefWidth="200.0" />
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                        <TabPane id="workspaceTabs" fx:id="workspaceTabs" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS" />
+                        <TabPane id="detailsTabs" fx:id="detailsTabs" prefHeight="200.0" prefWidth="200.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Components">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                    </items>
+                  </SplitPane>
+                  <TabPane id="terminalTabs" fx:id="terminalTabs" prefHeight="200.0" prefWidth="200.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Terminal">
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+              </items>
+            </SplitPane>
+         </center>
+      </BorderPane>
+      <Pane id="statusBar" fx:id="statusBar" prefHeight="32.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="hideTermButton" layoutX="14.0" layoutY="3.0" mnemonicParsing="false" text="Hide term" />
+         </children></Pane>
+   </children>
+</VBox>
