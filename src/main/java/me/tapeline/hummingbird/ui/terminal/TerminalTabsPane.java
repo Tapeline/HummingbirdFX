@@ -34,7 +34,7 @@ public class TerminalTabsPane extends TabPane {
         terminal.getTerminalConfig().setCursorBlink(true);
         terminal.getTerminalConfig().setScrollWhellMoveMultiplier(App.cfg.scrollMultiplier);
         getTabs().add(terminal);
-        terminal.onTerminalFxReady(() -> terminal.getTerminal().command(cmd));
+        terminal.onTerminalFxReady(() -> terminal.getTerminal().command(cmd + "\n"));
     }
 
 }

@@ -33,6 +33,8 @@ import me.tapeline.hummingbird.view.settings.SettingsStage;
 import me.tapeline.hummingbirdplugin.quail.QuailPlugin;
 
 public class App extends Application {
+
+    public static App instance;
     public static Configuration cfg;
     public static String configPath = "config.yml";
     public List<Window> openedWindows = new ArrayList();
@@ -48,6 +50,7 @@ public class App extends Application {
     }
 
     public void start(Stage stage) throws Exception {
+        instance = this;
         String iconsFolder = "images";
         String fontsFolder = "fonts";
         BufferedImage splashImage = ImageIO.read(App.class.getResource(iconsFolder + "/splash.png"));

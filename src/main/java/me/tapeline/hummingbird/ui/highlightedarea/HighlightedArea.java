@@ -52,7 +52,7 @@ public class HighlightedArea extends InlineCssTextArea {
 
         setStyle("-fx-font-size: " + App.cfg.fontSize + "; -fx-font-family: " + App.cfg.fontName + "; " +
                 "-fx-background-color: " + Convert.hexColor(Registry.getCurrentTheme().colors().backgroundText) +
-                ";");
+                "; -fx-fill: " + Convert.hexColor(Registry.getCurrentTheme().scheme().regular.foreground) + ";");
 
         EventHandler<? super KeyEvent> tabHandler = EventHandlerHelper
                 .on(EventPattern.keyPressed(KeyCode.TAB)).act(event -> {
@@ -70,6 +70,8 @@ public class HighlightedArea extends InlineCssTextArea {
         focusedProperty().addListener(observable -> {
             autocompletePopup.hide();
         });
+
+        autocompletePopup = new ContextMenu();
     }
 
     public void cleanup() {
@@ -108,7 +110,7 @@ public class HighlightedArea extends InlineCssTextArea {
         }
 
         clearStyle(0, getLength());
-        //setStyle(0, 0, Registry.getCurrentTheme().scheme().regular.toCSSStyles());
+        setStyle(0, getLength(), Registry.getCurrentTheme().scheme().regular.toCSSStyles());
         for (SyntaxHighlightingThread th : syntaxHighlightingThreads)
             for (Highlight highlight : th.getResult())
                 setStyle(highlight.bounds.left, highlight.bounds.right, highlight.style.family(App.cfg.fontName)

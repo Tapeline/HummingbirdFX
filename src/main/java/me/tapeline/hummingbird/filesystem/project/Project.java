@@ -3,6 +3,9 @@ package me.tapeline.hummingbird.filesystem.project;
 import me.tapeline.hummingbird.App;
 import me.tapeline.hummingbird.Main;
 import me.tapeline.hummingbird.filesystem.project.fsmodel.FileSystemModel;
+import me.tapeline.hummingbird.view.common.Dialogs;
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +37,18 @@ public class Project {
         if (p.startsWith("/")) p = p.substring(1);
         p = root.getName() + "/" + p;
         return new File(p);
+    }
+
+    public Repository getRepo() {
+        File gitFolder = new File(root.getAbsolutePath() + "/.git");
+        if (gitFolder.exists()) {
+            try {
+                return new FileRepositoryBuilder().setGitDir(gitFolder).build();
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return null;
     }
 
 }

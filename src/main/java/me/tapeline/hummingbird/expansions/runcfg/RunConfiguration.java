@@ -9,7 +9,10 @@ public class RunConfiguration {
     public String command;
     public String name;
 
-    public RunConfiguration() {}
+    public RunConfiguration() {
+        this.name = "new " + hashCode();
+        this.command = "";
+    }
 
     public RunConfiguration(String name, String command) {
         this.command = command;

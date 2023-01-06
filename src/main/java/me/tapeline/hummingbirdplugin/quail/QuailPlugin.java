@@ -1,11 +1,12 @@
 package me.tapeline.hummingbirdplugin.quail;
 
 import me.tapeline.hummingbird.expansions.Plugin;
+import me.tapeline.hummingbird.expansions.autocompletion.AbstractCodeAutocompleter;
 import me.tapeline.hummingbird.expansions.customactions.AbstractPluginAction;
 import me.tapeline.hummingbird.expansions.customactions.AbstractPluginShortcut;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
 import me.tapeline.hummingbird.expansions.highlighter.AbstractSyntaxHighlighter;
-import me.tapeline.hummingbird.expansions.projecttype.AbstractProjectType;
+import me.tapeline.hummingbird.expansions.projecttype.AbstractProjectGenerator;
 import me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker;
 import me.tapeline.hummingbird.expansions.themes.AbstractTheme;
 
@@ -29,7 +30,7 @@ public class QuailPlugin extends Plugin {
     }
 
     @Override
-    public List<AbstractProjectType> providedProjectTypes() {
+    public List<AbstractProjectGenerator> providedProjectGenerators() {
         return null;
     }
 
@@ -66,6 +67,11 @@ public class QuailPlugin extends Plugin {
 
     @Override
     public List<AbstractPluginShortcut> providedShortcuts() {
+        return null;
+    }
+
+    @Override
+    public List<AbstractCodeAutocompleter> providedAutocompleters() {
         return null;
     }
 }

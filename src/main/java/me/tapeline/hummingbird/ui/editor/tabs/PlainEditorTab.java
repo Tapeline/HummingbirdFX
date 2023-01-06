@@ -9,7 +9,7 @@ import me.tapeline.hummingbird.view.editor.EditorStage;
 
 import java.io.File;
 
-public class PlainEditorTab extends AbstractEditorTab {
+public class PlainEditorTab extends AbstractEditorTab implements AssignableToFileTab {
 
     public File file;
     public TextArea area;
@@ -29,5 +29,10 @@ public class PlainEditorTab extends AbstractEditorTab {
     @Override
     public void save(EditorStage stage) throws Exception {
         FS.writeFile(file, area.getText());
+    }
+
+    @Override
+    public File getFile() {
+        return file;
     }
 }

@@ -10,18 +10,22 @@ import me.tapeline.hummingbird.filesystem.project.Project;
 import me.tapeline.hummingbird.ui.editor.tabs.AbstractEditorTab;
 import me.tapeline.hummingbird.view.common.Dialogs;
 import me.tapeline.hummingbird.view.common.HMStage;
+import org.eclipse.jgit.lib.Repository;
 
+import java.io.File;
 import java.io.IOException;
 
 public class EditorStage extends HMStage {
 
     public Project project;
     public EditorController controller = null;
+    public App app;
 
     public EditorStage(App app, Project project) {
         super(StageStyle.DECORATED);
         this.project = project;
         this.controller = new EditorController(this);
+        this.app = app;
 
         Scene scene = app.loadScene(this, "editor-view", controller);
         controller.initCustomItems(this);
@@ -51,4 +55,9 @@ public class EditorStage extends HMStage {
     public EditorController getController() {
         return controller;
     }
+
+    public void toggleFullscreen() {
+        setFullScreen(!isFullScreen());
+    }
+
 }

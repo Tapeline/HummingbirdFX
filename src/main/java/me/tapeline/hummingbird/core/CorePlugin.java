@@ -2,15 +2,18 @@ package me.tapeline.hummingbird.core;
 
 import me.tapeline.hummingbird.core.filetypes.GeneralFile;
 import me.tapeline.hummingbird.core.filetypes.GeneralFolder;
+import me.tapeline.hummingbird.core.project.EmptyProjectGenerator;
 import me.tapeline.hummingbird.core.themes.DarculaTheme;
 import me.tapeline.hummingbird.core.themes.LightTheme;
 import me.tapeline.hummingbird.expansions.Plugin;
 import me.tapeline.hummingbird.expansions.Registry;
+import me.tapeline.hummingbird.expansions.autocompletion.AbstractCodeAutocompleter;
 import me.tapeline.hummingbird.expansions.customactions.AbstractPluginAction;
 import me.tapeline.hummingbird.expansions.customactions.AbstractPluginShortcut;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
 import me.tapeline.hummingbird.expansions.highlighter.AbstractSyntaxHighlighter;
-import me.tapeline.hummingbird.expansions.projecttype.AbstractProjectType;
+import me.tapeline.hummingbird.expansions.projecttype.AbstractProjectGenerator;
+import me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker;
 import me.tapeline.hummingbird.expansions.themes.AbstractTheme;
 
 import java.util.Arrays;
@@ -36,8 +39,10 @@ public class CorePlugin extends Plugin {
     }
 
     @Override
-    public List<AbstractProjectType> providedProjectTypes() {
-        return null;
+    public List<AbstractProjectGenerator> providedProjectGenerators() {
+        return Arrays.asList(
+                new EmptyProjectGenerator()
+        );
     }
 
     @Override
@@ -46,7 +51,7 @@ public class CorePlugin extends Plugin {
     }
 
     @Override
-    public List<me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker> providedSyntaxCheckers() {
+    public List<AbstractSyntaxChecker> providedSyntaxCheckers() {
         return null;
     }
 
@@ -74,6 +79,11 @@ public class CorePlugin extends Plugin {
 
     @Override
     public List<AbstractPluginShortcut> providedShortcuts() {
+        return null;
+    }
+
+    @Override
+    public List<AbstractCodeAutocompleter> providedAutocompleters() {
         return null;
     }
 

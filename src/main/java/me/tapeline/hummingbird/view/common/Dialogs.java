@@ -3,8 +3,12 @@ package me.tapeline.hummingbird.view.common;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 import me.tapeline.hummingbird.App;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
@@ -68,6 +72,17 @@ public class Dialogs {
         return result.orElse(null);
     }
 
+    public static File askFile(Window parent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose file");
+        return fileChooser.showOpenDialog(parent);
+    }
+
+    public static File askFolder(Window parent) {
+        DirectoryChooser fileChooser = new DirectoryChooser();
+        fileChooser.setTitle("Choose folder");
+        return fileChooser.showDialog(parent);
+    }
 
     public static void exception(Exception ex) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

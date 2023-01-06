@@ -30,7 +30,7 @@ public class AppExitWatcher extends Thread {
                 break;
             }
 
-            while (start + 3000 > System.currentTimeMillis());
+            while (start + 2000 > System.currentTimeMillis());
         }
         System.exit(0);
     }

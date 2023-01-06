@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="620.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.tapeline.hummingbird.view.RuncfgView">
+<VBox prefHeight="620.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="595.0" prefWidth="637.0">
          <children>
@@ -29,7 +29,7 @@
                               <Button fx:id="removeButton" mnemonicParsing="false" text="-" />
                           </items>
                         </ToolBar>
-                        <ListView prefHeight="648.0" prefWidth="256.0" VBox.vgrow="ALWAYS" />
+                        <ListView fx:id="confs" prefHeight="648.0" prefWidth="256.0" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0">
@@ -55,7 +55,7 @@
                                 </rowConstraints>
                                  <children>
                                     <Label text="\%{projectFolder}%" />
-                                    <Label text="\%{currentFile}%}" GridPane.rowIndex="1" />
+                                    <Label text="\%{currentFile}%" GridPane.rowIndex="1" />
                                     <Label text="\%{cfg:FIELD}%" GridPane.rowIndex="2" />
                                     <Label text="\%{input:str}%" GridPane.rowIndex="3" />
                                     <Label text="\%{input:file}%" GridPane.rowIndex="4" />

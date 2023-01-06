@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="194.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="heading" layoutX="32.0" layoutY="38.0" text="Hummingbird IDE" AnchorPane.leftAnchor="42.0">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label layoutX="157.0" layoutY="63.0" text="Developer Preview" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="138.0" text="(C) Tapeline 2021-2023" />
+   </children>
+</AnchorPane>

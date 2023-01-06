@@ -8,7 +8,7 @@ import java.util.List;
 
 public abstract class AbstractCodeAutocompleter {
 
-    public abstract boolean appliesToFile(File file);
+    public abstract AbstractFileType getApplicableFileType();
 
     public abstract List<AutocompleteSuggestion> autocomplete(HighlightedArea area);
 

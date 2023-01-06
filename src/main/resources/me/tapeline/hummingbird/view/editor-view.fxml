@@ -80,9 +80,10 @@
                <children>
                   <FlowPane fx:id="runButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="224.0">
                      <children>
-                        <ComboBox minHeight="32.0" />
-                        <Button maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
-                        <Button maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
+                        <Button fx:id="toolbarEditButton" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
+                        <ComboBox fx:id="runCfgCombo" minHeight="32.0" prefHeight="32.0" prefWidth="109.0" />
+                        <Button fx:id="toolbarRunButton" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
+                        <Button fx:id="toolbarStopButton" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
                      </children>
                   </FlowPane>
                   <FlowPane id="gitButtonsBar" fx:id="gitButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="211.0">
@@ -96,7 +97,7 @@
                   <FlowPane id="utilityButtonsBar" fx:id="utilityButtonsBar" alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="5.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="130.0">
                      <children>
                         <Button mnemonicParsing="false" text="Update" />
-                        <Button mnemonicParsing="false" text="About" />
+                        <Button fx:id="aboutButton" mnemonicParsing="false" text="About" />
                      </children>
                   </FlowPane>
                </children>

@@ -2,9 +2,13 @@ package me.tapeline.hummingbird.configuration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import me.tapeline.hummingbird.expansions.runcfg.RunConfiguration;
 
 public class Configuration {
+
+    public Map<String, Object> mapRepresentation;
 
     @Config
     public String pluginFolder = "plugins";

@@ -7,7 +7,7 @@ import me.tapeline.hummingbird.expansions.customactions.AbstractPluginAction;
 import me.tapeline.hummingbird.expansions.customactions.AbstractPluginShortcut;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
 import me.tapeline.hummingbird.expansions.highlighter.AbstractSyntaxHighlighter;
-import me.tapeline.hummingbird.expansions.projecttype.AbstractProjectType;
+import me.tapeline.hummingbird.expansions.projecttype.AbstractProjectGenerator;
 import me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker;
 import me.tapeline.hummingbird.expansions.themes.AbstractTheme;
 
@@ -19,7 +19,7 @@ public abstract class Plugin {
 
     public abstract float version();
 
-    public abstract List<AbstractProjectType> providedProjectTypes();
+    public abstract List<AbstractProjectGenerator> providedProjectGenerators();
 
     public abstract List<AbstractSyntaxHighlighter> providedSyntaxes();
 

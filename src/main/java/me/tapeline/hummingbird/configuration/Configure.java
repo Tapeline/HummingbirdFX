@@ -43,6 +43,10 @@ public class Configure {
                             field.set(config, obj.get(prefix + "--" + configAnnotation.configurationField()));
                         }
                     }
+                } else if (field.getName().equals("mapRepresentation")) {
+                    try {
+                        field.set(config, obj);
+                    } catch (Exception ignored) { }
                 }
             }
 
@@ -54,7 +58,7 @@ public class Configure {
 
     public static void saveYaml(String path, Object config) {
         Yaml yaml = new Yaml();
-        Map<String, Object> obj = (Map)yaml.load(FS.readFile(path, "# config"));
+        Map<String, Object> obj = (Map) yaml.load(FS.readFile(path, "# config"));
         if (obj == null) {
             obj = new HashMap();
         }
@@ -63,12 +67,20 @@ public class Configure {
             Field[] fields = config.getClass().getFields();
             int fieldCount = fields.length;
 
-            for(int i = 0; i < fieldCount; ++i) {
+            try {
+                for (int i = 0; i < fieldCount; ++i) {
+                    if (fields[i].getName().equals("mapRepresentation"))
+                        obj.putAll(((Map<String, Object>) fields[i].get(config)));
+                }
+            } catch (Exception ignored) { }
+
+            for (int i = 0; i < fieldCount; ++i) {
                 Field field = fields[i];
-                Config configAnnotation = (Config)field.getAnnotation(Config.class);
+                Config configAnnotation = (Config) field.getAnnotation(Config.class);
                 if (configAnnotation != null) {
                     String prefix = configAnnotation.section();
-                    ((Map)obj).put(prefix + "--" + (!configAnnotation.configurationField().equals("") ? configAnnotation.configurationField() : field.getName()), field.get(config));
+                    ((Map) obj).put(prefix + "--" + (!configAnnotation.configurationField().equals("") ?
+                            configAnnotation.configurationField() : field.getName()), field.get(config));
                 }
             }
 

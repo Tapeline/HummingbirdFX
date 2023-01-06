@@ -3,6 +3,7 @@ package me.tapeline.hummingbird.ui.settings.tabs;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import me.tapeline.hummingbird.Main;
 import me.tapeline.hummingbird.configuration.Config;
@@ -37,11 +38,11 @@ public class SettingsTab extends Tab {
 
         setText(Utils.idToHumanReadableName(section));
 
+        AnchorPane anchorPane = new AnchorPane();
+
         GridPane content = new GridPane();
         content.setHgap(10);
         content.setVgap(8);
-
-        GridPane.setMargin(content, new Insets(10, 10, 10, 10));
 
         try {
             Field[] fields = cfg.getClass().getFields();
@@ -94,7 +95,13 @@ public class SettingsTab extends Tab {
             line++;
         }
 
-        setContent(content);
+        AnchorPane.setTopAnchor(content, 10D);
+        AnchorPane.setLeftAnchor(content, 24D);
+        AnchorPane.setRightAnchor(content, 24D);
+        AnchorPane.setBottomAnchor(content, 10D);
+        anchorPane.getChildren().add(content);
+
+        setContent(anchorPane);
     }
 
 }

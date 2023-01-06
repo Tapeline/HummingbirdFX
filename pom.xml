@@ -23,6 +23,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.eclipse.jgit</groupId>
+            <artifactId>org.eclipse.jgit</artifactId>
+            <version>6.2.0.202206071550-r</version>
+        </dependency>
+        <dependency>
             <groupId>com.kodedu.terminalfx</groupId>
             <artifactId>terminalfx</artifactId>
             <version>1.2.0</version>

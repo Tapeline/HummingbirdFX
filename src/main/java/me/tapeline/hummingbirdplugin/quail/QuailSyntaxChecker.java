@@ -221,7 +221,7 @@ public class QuailSyntaxChecker extends AbstractSyntaxChecker {
         public void fix(File file) {
             String content = FS.readFile(file);
             if (content != null) {
-                String pre = content.substring(start);
+                String pre = content.substring(0, start);
                 String post = content.substring(end);
                 String subject = content.substring(start, end);
                 subject = subject.replaceAll("_", "");

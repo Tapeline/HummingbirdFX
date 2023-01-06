@@ -8,7 +8,7 @@ import me.tapeline.hummingbird.expansions.customactions.AbstractPluginAction;
 import me.tapeline.hummingbird.expansions.customactions.AbstractPluginShortcut;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
 import me.tapeline.hummingbird.expansions.highlighter.AbstractSyntaxHighlighter;
-import me.tapeline.hummingbird.expansions.projecttype.AbstractProjectType;
+import me.tapeline.hummingbird.expansions.projecttype.AbstractProjectGenerator;
 import me.tapeline.hummingbird.expansions.themes.AbstractTheme;
 
 public class Registry {
@@ -17,7 +17,7 @@ public class Registry {
     public static List<AbstractFileType> fileTypes = new ArrayList();
     public static List<me.tapeline.hummingbird.expansions.syntaxchecker.AbstractSyntaxChecker> syntaxCheckers = new ArrayList();
     public static List<AbstractSyntaxHighlighter> syntaxHighlighters = new ArrayList();
-    public static List<AbstractProjectType> projectTypes = new ArrayList();
+    public static List<AbstractProjectGenerator> projectGenerators = new ArrayList();
     public static List<AbstractPluginAction> pluginActions = new ArrayList();
     public static List<AbstractPluginShortcut> pluginShortcuts = new ArrayList();
     public static List<AbstractCodeAutocompleter> codeAutocompleters = new ArrayList<>();
@@ -41,8 +41,8 @@ public class Registry {
             syntaxHighlighters.addAll(pl.providedSyntaxes());
         }
 
-        if (pl.providedProjectTypes() != null) {
-            projectTypes.addAll(pl.providedProjectTypes());
+        if (pl.providedProjectGenerators() != null) {
+            projectGenerators.addAll(pl.providedProjectGenerators());
         }
 
         if (pl.providedActions() != null) {
