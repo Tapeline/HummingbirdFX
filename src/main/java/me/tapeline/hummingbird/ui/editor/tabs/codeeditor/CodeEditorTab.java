@@ -115,14 +115,20 @@ public class CodeEditorTab extends AbstractEditorTab implements AssignableToFile
 
     public void reloadRequest() {
         String newContent = FS.readFile(file);
-        if (!newContent.equals(area.getText())) {
-            if (Dialogs.confirm("Update detected", "Update detected",
+        if (newContent != null && !newContent.equals(area.getText())) {
+            /*if (Dialogs.confirm("Update detected", "Update detected",
                     "Do you want to keep all remote changes to file?").orElse(ButtonType.CANCEL)
-                    .equals(ButtonType.OK)) {
+                    .equals(ButtonType.OK)) {*/
                 area.replaceText(newContent);
-            } else {
+            /*} else {
                 FS.writeFile(file, area.getText());
-            }
+            }*/
         }
     }
+
+    @Override
+    public void scrollTo(int ch) {
+        area.moveTo(ch);
+    }
+
 }

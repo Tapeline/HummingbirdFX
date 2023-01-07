@@ -114,7 +114,16 @@
                           <tabs>
                             <Tab text="Project">
                               <content>
-                                    <TreeView id="fileTree" fx:id="fileTree" prefHeight="200.0" prefWidth="200.0" />
+                                    <AnchorPane>
+                                       <children>
+                                          <TreeView id="fileTree" fx:id="fileTree" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0" />
+                                          <ToolBar layoutX="-28.0" maxHeight="32.0" minHeight="32.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="206.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <items>
+                                              <Button fx:id="fileTreeRefreshButton" maxHeight="24.0" mnemonicParsing="false" text="Refresh" />
+                                            </items>
+                                          </ToolBar>
+                                       </children>
+                                    </AnchorPane>
                               </content>
                             </Tab>
                           </tabs>
@@ -228,6 +237,16 @@
             </SplitPane>
          </center>
       </BorderPane>
-      <Pane id="statusBar" fx:id="statusBar" prefHeight="32.0" prefWidth="200.0" />
+      <BorderPane maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="200.0">
+         <left>
+            <ToolBar fx:id="statusLeft" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <ToolBar fx:id="statusRight" maxHeight="32.0" minHeight="32.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </right>
+         <center>
+            <ToolBar fx:id="statusCenter" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="206.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
    </children>
 </VBox>

@@ -7,4 +7,6 @@ public abstract class AbstractEditorTab extends Tab {
 
     public abstract void save(EditorStage stage) throws Exception;
 
+    public abstract void scrollTo(int ch);
+
 }

@@ -41,6 +41,7 @@ public class EditorStage extends HMStage {
     }
 
     public void save() {
+        project.saveConfig();
         for (Tab tab : controller.workspaceTabs.getTabs()) {
             if (tab instanceof AbstractEditorTab) {
                 try {

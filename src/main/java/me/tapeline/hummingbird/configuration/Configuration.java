@@ -1,6 +1,7 @@
 package me.tapeline.hummingbird.configuration;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,5 +43,8 @@ public class Configuration {
 
     @Config(showInSettings = false)
     public List<RunConfiguration> runConfigurations = new ArrayList();
+
+    @Config(showInSettings = false)
+    public HashMap<String, Object> defaultProjectConfigTemplate = new HashMap<>();
 
 }

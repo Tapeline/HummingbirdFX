@@ -67,9 +67,7 @@ public class NewProjectController {
             projectTypes.getItems().add(gen);
         }
 
-        projectTypes.selectionModelProperty().addListener((observableValue,
-                                                           abstractProjectGeneratorMultipleSelectionModel,
-                                                           t1) -> switchProjectGenerator());
+        projectTypes.selectionModelProperty().addListener((o1, t1, t2) -> switchProjectGenerator());
         projectTypes.selectionModelProperty().addListener(observable -> switchProjectGenerator());
         switchProjectGenerator();
 
@@ -105,6 +103,7 @@ public class NewProjectController {
         for (TitledPane t : forms.getPanes().subList(0, forms.getPanes().size()))
             if (t != general)
                 forms.getPanes().remove(t);
+
         selectedGenerator = null;
         if (projectTypes.getSelectionModel().getSelectedItem() == null &&
             projectTypes.getItems().size() > 0) {

@@ -14,6 +14,7 @@ public class FileTreeItem extends TreeItem<String> {
     public File file;
     public ContextMenu contextMenu;
     public Project project;
+    public FileTreeCell cell = null;
 
     public FileTreeItem(File file, Project project) {
         super(file.getName());
@@ -33,10 +34,10 @@ public class FileTreeItem extends TreeItem<String> {
 
         this.getChildren().sort(new FileComparator());
         AbstractFileType fileType = FS.getTypeForFile(this.file);
-        if (fileType != null) {
-            fileType.setupContextActions(this.contextMenu, this.file, this.project);
+        /*if (fileType != null) {
+            fileType.setupContextActions(, this.contextMenu, this.file, this.project);
             this.setGraphic(new ImageView(Icons.convertToFxImage(fileType.icon)));
-        }
+        }*/
 
         this.setValue(this.file.getName());
     }

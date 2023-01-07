@@ -29,10 +29,12 @@ public abstract class Form extends AnchorPane {
         for (FormField<?> ff : model)
             content.addRow(line++, new Label(ff.getLabel()), ff.getGuiNode());
 
-        AnchorPane.setTopAnchor(content, 10D);
-        AnchorPane.setLeftAnchor(content, 24D);
-        AnchorPane.setRightAnchor(content, 24D);
-        AnchorPane.setBottomAnchor(content, 48D);
+        ScrollPane scrollPane = new ScrollPane(content);
+
+        AnchorPane.setTopAnchor(scrollPane, 10D);
+        AnchorPane.setLeftAnchor(scrollPane, 24D);
+        AnchorPane.setRightAnchor(scrollPane, 24D);
+        AnchorPane.setBottomAnchor(scrollPane, 48D);
 
         if (submittable) {
             Button submit = new Button("Save & Submit");
@@ -44,7 +46,7 @@ public abstract class Form extends AnchorPane {
             AnchorPane.setRightAnchor(submit, 16D);
             getChildren().add(submit);
         }
-        getChildren().add(new ScrollPane(content));
+        getChildren().add(scrollPane);
     }
 
     public void parseValues() {

@@ -137,7 +137,19 @@ public class EditorController {
     public ComboBox<RunConfiguration> runCfgCombo;
 
     @FXML
+    public Button fileTreeRefreshButton;
+
+    @FXML
     public Button aboutButton;
+
+    @FXML
+    public ToolBar statusLeft;
+
+    @FXML
+    public ToolBar statusCenter;
+
+    @FXML
+    public ToolBar statusRight;
 
     public BreadCrumbBar<String> pathCrumb;
 
@@ -372,6 +384,8 @@ public class EditorController {
 
         toolbarRunButton.setOnAction(actionEvent -> runCurrentConfiguration());
         toolbarStopButton.setOnAction(actionEvent -> runTabsPane.destroyCurrent());
+
+        fileTreeRefreshButton.setOnAction(actionEvent -> rebuildFileTree(editor.project, editor.project.root));
     }
 
     public void refreshRunConfigurations() {
@@ -416,14 +430,23 @@ public class EditorController {
         runTabsPane.runInNewTab(selected.name, cmd);
     }
 
+    public void updateFileTree() {
+        if (fileTree.getRoot() instanceof FileTreeItem) {
+            if (((FileTreeItem) fileTree.getRoot()).cell != null) {
+                ((FileTreeItem) fileTree.getRoot()).cell.updateNodes();
+            }
+        }
+    }
+
     public void rebuildFileTree(Project project, File file) {
         FileTreeItem rootFileItem = new FileTreeItem(file, project);
         fileTree.setRoot(rootFileItem);
         pathCrumb.setSelectedCrumb(rootFileItem);
+        EditorController that = this;
         fileTree.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
             @Override
             public TreeCell<String> call(TreeView<String> stringTreeView) {
-                return new FileTreeCell();
+                return new FileTreeCell(that);
             }
         });
         fileTree.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleFileTreeClick);
@@ -459,6 +482,7 @@ public class EditorController {
                     if (((CodeEditorTab) tab).file.equals(file)) {
                         workspaceTabs.getSelectionModel().select(tab);
                         //((CodeEditorTab) tab).area.line
+                        ((CodeEditorTab) tab).scrollTo(selectedLine);
                     }
                 }
             }
@@ -469,7 +493,9 @@ public class EditorController {
                     fileType.customOpen(editor, file);
                 else {
                     String content = FS.readFile(file);
-                    openTab(new CodeEditorTab(editor, file, content), file.getName(), fileType.icon);
+                    CodeEditorTab codeEditorTab = new CodeEditorTab(editor, file, content);
+                    openTab(codeEditorTab, file.getName(), fileType.icon);
+                    codeEditorTab.scrollTo(selectedLine);
                 }
             } else {
                 Dialogs.error("Opening",

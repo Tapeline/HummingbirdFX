@@ -27,7 +27,7 @@ public abstract class AbstractFileType {
 
     public abstract boolean appliesToFile(File var1);
 
-    public abstract void setupContextActions(ContextMenu menu, File contextFile, Project contextProject);
+    public abstract void setupContextActions(EditorStage editor, ContextMenu menu, File contextFile, Project contextProject);
 
     public boolean canOpen(File file) {
         return true;

@@ -28,9 +28,11 @@ public class GitMenu extends Menu {
         MenuItem makeRepository = new MenuItem("Make Repository");
         makeRepository.setOnAction(actionEvent -> {
             File gitFolder = new File(stage.project.root.getAbsolutePath() + "/.git");
-            boolean doNotCreateNew = gitFolder.exists() &&
-                    Dialogs.confirm("Init Repository", "Repository already exists",
-                            "Do you wish to recreate it?").orElse(ButtonType.CANCEL) != ButtonType.OK;
+            boolean doNotCreateNew = gitFolder.exists() && Dialogs.confirm(
+                    "Init Repository",
+                    "Repository already exists",
+                    "Do you wish to recreate it?"
+            ).orElse(ButtonType.CANCEL) != ButtonType.OK;
             if (!doNotCreateNew) {
                 try {
                     Repository repo = FileRepositoryBuilder.create(gitFolder);

@@ -4,10 +4,9 @@ terminal--scrollMultiplier: 1.8
 debugOptions--allowDebug: false
 general--lastOpened: [/home/tapeline/JavaProjects/Files/HummingbirdFx/testProj, /home/tapeline/JavaProjects/Files/HummingbirdFx/projects/untitled]
 appearance--fontName: Hack
-general--runConfigurations:
-- !!me.tapeline.hummingbird.expansions.runcfg.RunConfiguration {command: ls, name: Get
-    Files}
+general--runConfigurations: []
 general--pluginFolder: plugins
+general--defaultProjectConfigTemplate: {}
 appearance--fontSize: 16
 appearance--theme: Darcula
 general--enabledPlugins: []

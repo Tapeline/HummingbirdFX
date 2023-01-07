@@ -4,71 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cb53154-cf12-49ef-a1f0-ab5e1cbf54e0" name="Changes" comment="remove buggy path">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/core/project/EmptyProjectGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/editor/tabs/AssignableToFileTab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/CodeMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/EditMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/FileMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/GitMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/HelpMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/RefactorMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/RunMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/ToolsMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/ViewMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/run/RunTabsPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/wizardfields/BooleanField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/wizardfields/DoubleField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/wizardfields/Form.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/wizardfields/FormField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/wizardfields/IntegerField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/wizardfields/PathField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/wizardfields/StringField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/about/AboutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/about/AboutStage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/newproject/NewProjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/newproject/NewProjectStage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/images/icon16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/images/icon32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/images/icon48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/images/icon64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/view/about-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/view/newproject-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="2cb53154-cf12-49ef-a1f0-ab5e1cbf54e0" name="Changes" comment="snapshot">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/FileNewFolderMenuItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testProj/.ide/project.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/configuration/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/configuration/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/configuration/Configure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/configuration/Configure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/core/CorePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/core/CorePlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/Plugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/Plugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/Registry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/Registry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/autocompletion/AbstractCodeAutocompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/autocompletion/AbstractCodeAutocompleter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/projecttype/AbstractProjectType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/projecttype/AbstractProjectGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/runcfg/RunConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/runcfg/RunConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/syntaxchecker/AutoFixAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/syntaxchecker/AutoFixAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/core/filetypes/GeneralFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/core/filetypes/GeneralFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/core/filetypes/GeneralFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/core/filetypes/GeneralFolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/filetype/AbstractFileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/expansions/filetype/AbstractFileType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/filesystem/project/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/filesystem/project/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/resources/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/resources/Icons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/editor/tabs/AbstractEditorTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/editor/tabs/AbstractEditorTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/editor/tabs/PlainEditorTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/editor/tabs/PlainEditorTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/editor/tabs/codeeditor/CodeEditorTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/editor/tabs/codeeditor/CodeEditorTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/highlightedarea/HighlightedArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/highlightedarea/HighlightedArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/settings/tabs/SettingsTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/settings/tabs/SettingsTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/terminal/TerminalTabsPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/terminal/TerminalTabsPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/utils/AppExitWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/utils/AppExitWatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/common/Dialogs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/common/Dialogs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/filetree/FileTreeCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/filetree/FileTreeCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/filetree/FileTreeItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/filetree/FileTreeItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/FileDeleteMenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/FileDeleteMenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/FileNewMenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/FileNewMenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/GitMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/menus/editortop/GitMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/wizardfields/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/ui/wizardfields/Form.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/editor/EditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/editor/EditorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/editor/EditorStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/editor/EditorStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/runcfg/RunConfigurationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/runcfg/RunConfigurationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/runcfg/RunConfigurationsStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/runcfg/RunConfigurationsStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbirdplugin/quail/QuailPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbirdplugin/quail/QuailPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbirdplugin/quail/QuailSyntaxChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbirdplugin/quail/QuailSyntaxChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/images/foldernew.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/images/folderNew.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/images/folderopen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/images/folderOpen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/images/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/images/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/newproject/NewProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbird/view/newproject/NewProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbirdplugin/quail/QuailFileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tapeline/hummingbirdplugin/quail/QuailFileType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/view/editor-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/view/editor-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/view/runcfg-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/view/runcfg-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/view/terminal-tab.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testProj/res/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/testProj/res/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testProj/src/test.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,11 +98,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/me/tapeline/hummingbird/style" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.tapeline.hummingbird.ui.menus" />
       <recent name="me.tapeline.hummingbird.ui.wizardfields" />
       <recent name="me.tapeline.hummingbird.view.newproject" />
       <recent name="me.tapeline.hummingbird.view.about" />
       <recent name="me.tapeline.hummingbird.ui.menus.editortop" />
-      <recent name="me.tapeline.hummingbird.ui.menus" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -284,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672559454894</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="snapshot">
+      <created>1673039487963</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673039487963</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -304,9 +272,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="snapshot" />
     <MESSAGE value="remove buggy path" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove buggy path" />
+    <MESSAGE value="snapshot" />
+    <option name="LAST_COMMIT_MESSAGE" value="snapshot" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

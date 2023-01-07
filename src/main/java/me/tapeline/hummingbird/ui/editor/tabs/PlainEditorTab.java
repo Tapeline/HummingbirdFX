@@ -32,6 +32,11 @@ public class PlainEditorTab extends AbstractEditorTab implements AssignableToFil
     }
 
     @Override
+    public void scrollTo(int ch) {
+        area.positionCaret(ch);
+    }
+
+    @Override
     public File getFile() {
         return file;
     }

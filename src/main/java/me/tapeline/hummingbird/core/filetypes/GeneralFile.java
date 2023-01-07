@@ -1,13 +1,14 @@
 package me.tapeline.hummingbird.core.filetypes;
 
 import java.io.File;
-import java.util.Iterator;
+
 import javafx.scene.control.ContextMenu;
 import me.tapeline.hummingbird.expansions.filetype.AbstractFileType;
 import me.tapeline.hummingbird.filesystem.project.Project;
 import me.tapeline.hummingbird.resources.Icons;
 import me.tapeline.hummingbird.ui.menus.FileDeleteMenuItem;
 import me.tapeline.hummingbird.utils.Utils;
+import me.tapeline.hummingbird.view.editor.EditorStage;
 
 public class GeneralFile extends AbstractFileType {
     public GeneralFile() {
@@ -24,8 +25,8 @@ public class GeneralFile extends AbstractFileType {
         return false;
     }
 
-    public void setupContextActions(ContextMenu menu, File contextFile, Project contextProject) {
-        menu.getItems().add(new FileDeleteMenuItem(contextFile));
+    public void setupContextActions(EditorStage editor, ContextMenu menu, File contextFile, Project contextProject) {
+        menu.getItems().add(new FileDeleteMenuItem(editor.controller, contextFile));
     }
 
     public String id() {
