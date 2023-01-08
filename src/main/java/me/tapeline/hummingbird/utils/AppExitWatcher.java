@@ -17,17 +17,20 @@ public class AppExitWatcher extends Thread {
         while (true) {
             long start = System.currentTimeMillis();
 
-            boolean stop = true;
-            for (Window frame : app.openedWindows) {
-                if (frame.isShowing()) {
-                    stop = false;
+
+            if (!app.wakelock) {
+                boolean stop = true;
+                for (Window frame : app.openedWindows) {
+                    if (frame.isShowing()) {
+                        stop = false;
+                        break;
+                    }
+                }
+
+                if (stop) {
+                    Configure.saveYaml(App.configPath, App.cfg);
                     break;
                 }
-            }
-
-            if (stop) {
-                Configure.saveYaml(App.configPath, App.cfg);
-                break;
             }
 
             while (start + 2000 > System.currentTimeMillis());

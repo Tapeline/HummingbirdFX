@@ -4,13 +4,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DialogPane;
 import javafx.stage.Stage;
@@ -20,16 +18,13 @@ import me.tapeline.hummingbird.configuration.Configuration;
 import me.tapeline.hummingbird.configuration.Configure;
 import me.tapeline.hummingbird.core.CorePlugin;
 import me.tapeline.hummingbird.expansions.Registry;
-import me.tapeline.hummingbird.filesystem.project.Project;
-import me.tapeline.hummingbird.resources.FontLoader;
 import me.tapeline.hummingbird.resources.IconLoader;
 import me.tapeline.hummingbird.resources.StylesheetManager;
 import me.tapeline.hummingbird.splash.SplashScreen;
 import me.tapeline.hummingbird.utils.AppExitWatcher;
 import me.tapeline.hummingbird.view.common.Dialogs;
 import me.tapeline.hummingbird.view.common.HMStage;
-import me.tapeline.hummingbird.view.editor.EditorStage;
-import me.tapeline.hummingbird.view.settings.SettingsStage;
+import me.tapeline.hummingbird.view.welcome.WelcomeStage;
 import me.tapeline.hummingbirdplugin.quail.QuailPlugin;
 
 public class App extends Application {
@@ -38,6 +33,7 @@ public class App extends Application {
     public static Configuration cfg;
     public static String configPath = "config.yml";
     public List<Window> openedWindows = new ArrayList();
+    public boolean wakelock = false;
     public static String stylesheet;
     public static String stylesheetFile = System.getProperty("user.dir") + "/root.css";
 
@@ -47,6 +43,14 @@ public class App extends Application {
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void acquireWakelock() {
+        this.wakelock = true;
+    }
+
+    public void releaseWakelock() {
+        this.wakelock = false;
     }
 
     public void start(Stage stage) throws Exception {
@@ -84,8 +88,10 @@ public class App extends Application {
                 Dialogs.warn("Warning", "Developer preview", "Do not use in production");
 
                 ///SettingsStage settings = new SettingsStage(this);
-                EditorStage editor = new EditorStage(this, new Project(new File("testProj")));
-                this.openedWindows.add(editor);
+                /*EditorStage editor = new EditorStage(this, new Project(new File("testProj")));
+                this.openedWindows.add(editor);*/
+                WelcomeStage welcomeStage = new WelcomeStage(this);
+                openedWindows.add(welcomeStage);
                 System.out.println("Startup finished");
                 AppExitWatcher watcher = new AppExitWatcher(this);
             }
